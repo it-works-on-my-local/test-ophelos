@@ -14,7 +14,7 @@ class IncomeExpendituresController < ApplicationController
     @ie_statement = current_user.income_expenditures.new(ie_params)
 
     if @ie_statement.save
-      redirect_to income_expenditure_path(@ie_statement), notice: 'I&E Statement was successfully created.'
+      redirect_to income_expenditures_path, notice: 'I&E Statement was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class IncomeExpendituresController < ApplicationController
     @ie_statement = IncomeExpenditure.find(params[:id])
 
     if @ie_statement.update(ie_params)
-      redirect_to @ie_statement, notice: 'I&E Statement was successfully updated.'
+      redirect_to income_expenditures_path, notice: 'I&E Statement was successfully updated.'
     else
       render :edit
     end
