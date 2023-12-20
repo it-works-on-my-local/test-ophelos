@@ -1,0 +1,50 @@
+<!-- app/views/income_expenditures/show.html.erb -->
+
+<h1>Income and Expenditure Statement</h1>
+
+<table>
+  <tr>
+    <th>Person Name</th>
+    <td><%= @ie_statement.person_name %></td>
+  </tr>
+</table>
+
+<h2>Income</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Salary</th>
+      <th>Other</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @ie_statement.income&.salary %></td>
+      <td><%= @ie_statement.income&.other %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Expenditure</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Mortgage</th>
+      <th>Utilities</th>
+      <th>Travel</th>
+      <th>Food</th>
+      <th>Loan Repayment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @ie_statement.expenditure&.mortgage %></td>
+      <td><%= @ie_statement.expenditure&.utilities %></td>
+      <td><%= @ie_statement.expenditure&.travel %></td>
+      <td><%= @ie_statement.expenditure&.food %></td>
+      <td><%= @ie_statement.expenditure&.loan_repayment %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Back', income_expenditures_path %>

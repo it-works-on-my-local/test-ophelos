@@ -1,0 +1,55 @@
+<!-- app/views/income_expenditures/new.html.erb -->
+
+<h1>Create an I&E Statement</h1>
+
+<%= form_with(model: @ie_statement, url: income_expenditures_path, local: true) do |form| %>
+  <div>
+    <%= form.label :person_name %>
+    <%= form.text_field :person_name, required: true %>
+  </div>
+
+  <h2>Income</h2>
+  <div>
+    <%= form.fields_for :income do |income_form| %>
+      <%= income_form.label :salary %>
+      <%= income_form.number_field :salary, required: true %>
+    <% end %>
+
+    <%= form.fields_for :income do |income_form| %>
+      <%= income_form.label :other %>
+      <%= income_form.number_field :other, required: true %>
+    <% end %>
+  </div>
+
+  <h2>Expenditure</h2>
+  <div>
+    <%= form.fields_for :expenditure do |expenditure_form| %>
+      <%= expenditure_form.label :mortgage %>
+      <%= expenditure_form.number_field :mortgage, required: true %>
+    <% end %>
+
+    <%= form.fields_for :expenditure do |expenditure_form| %>
+      <%= expenditure_form.label :utilities %>
+      <%= expenditure_form.number_field :utilities, required: true %>
+    <% end %>
+
+    <%= form.fields_for :expenditure do |expenditure_form| %>
+      <%= expenditure_form.label :travel %>
+      <%= expenditure_form.number_field :travel, required: true %>
+    <% end %>
+
+    <%= form.fields_for :expenditure do |expenditure_form| %>
+      <%= expenditure_form.label :food %>
+      <%= expenditure_form.number_field :food, required: true %>
+    <% end %>
+
+    <%= form.fields_for :expenditure do |expenditure_form| %>
+      <%= expenditure_form.label :loan_repayment %>
+      <%= expenditure_form.number_field :loan_repayment, required: true %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+<!-- app/views/income_expenditures/index.html.erb -->
+
+<h1>Income and Expenditure Statements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person Name</th>
+      <th>Salary</th>
+      <th>Other</th>
+      <th>Mortgage</th>
+      <th>Utilities</th>
+      <th>Travel</th>
+      <th>Food</th>
+      <th>Loan Repayment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ie_statements.each do |ie_statement| %>
+      <tr>
+        <td><%= ie_statement.person_name %></td>
+        <td><%= ie_statement.income&.salary %></td>
+        <td><%= ie_statement.income&.other %></td>
+        <td><%= ie_statement.expenditure&.mortgage %></td>
+        <td><%= ie_statement.expenditure&.utilities %></td>
+        <td><%= ie_statement.expenditure&.travel %></td>
+        <td><%= ie_statement.expenditure&.food %></td>
+        <td><%= ie_statement.expenditure&.loan_repayment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
