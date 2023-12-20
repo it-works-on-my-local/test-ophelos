@@ -2,23 +2,12 @@
 
 <h1>Create an I&E Statement</h1>
 
-<%= form_with(model: @ie_statement, url: ie_statements_path, local: true) do |form| %>
-  <div>
-    <%= form.label :person_name %>
-    <%= form.text_field :person_name, required: true %>
-  </div>
+<%= simple_form_for @ie_statement, url: ie_statements_path do |form| %>
+  <%= form.input :person_name, required: true, label: 'Person Name' %>
 
-  <div>
-    <%= form.label :income %>
-    <%= form.number_field :income, required: true %>
-  </div>
+  <%= form.input :income, required: true %>
 
-  <div>
-    <%= form.label :expenditure %>
-    <%= form.number_field :expenditure, required: true %>
-  </div>
+  <%= form.input :expenditure, required: true %>
 
-  <div>
-    <%= form.submit 'Submit' %>
-  </div>
+  <%= form.button :submit, class: 'btn-primary' %>
 <% end %>
