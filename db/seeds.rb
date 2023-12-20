@@ -4,7 +4,8 @@ IncomeExpenditure.destroy_all
 
 # Create sample data
 income_expenditure = IncomeExpenditure.create!(
-  person_name: 'John Doe'
+  person_name: 'John Doe',
+  user_id: 1
 )
 
 Income.create!(

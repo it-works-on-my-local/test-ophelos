@@ -2,6 +2,7 @@
 
 # app/models/income_expenditure.rb
 class IncomeExpenditure < ApplicationRecord
+  belongs_to :user
   has_one :income, dependent: :destroy
   has_one :expenditure, dependent: :destroy
 
@@ -10,31 +11,34 @@ class IncomeExpenditure < ApplicationRecord
   validates :person_name, presence: true
 
   def disposable_income
-    income_amount = income&.salary.to_i + income&.other.to_i
-    expenditure_amount = expenditure&.mortgage.to_i + expenditure&.utilities.to_i + expenditure&.travel.to_i + expenditure&.food.to_i + expenditure&.loan_repayment.to_i
     income_amount - expenditure_amount
   end
 
   def rating
-    ratio = calculate_ratio
-    case ratio
-    when 0..0.1
-      'A'
-    when 0.1..0.3
-      'B'
-    when 0.3..0.5
-      'C'
-    else
-      'D'
+    case calculate_ratio
+    when 0..0.1 then 'A'
+    when 0.1..0.3 then 'B'
+    when 0.3..0.5 then 'C'
+    else 'D'
     end
   end
 
   private
 
+  def income_amount
+    calculate_amount(income, :salary, :other)
+  end
+
+  def expenditure_amount
+    calculate_amount(expenditure, :mortgage, :utilities, :travel, :food, :loan_repayment)
+  end
+
   def calculate_ratio
-    income_amount = income&.salary.to_i + income&.other.to_i
-    expenditure_amount = expenditure&.mortgage.to_i + expenditure&.utilities.to_i + expenditure&.travel.to_i + expenditure&.food.to_i + expenditure&.loan_repayment.to_i
     ratio = expenditure_amount.to_f / income_amount.to_f
     ratio.nan? ? 0 : ratio
+  end
+
+  def calculate_amount(record, *attributes)
+    attributes.sum { |attr| record&.public_send(attr).to_i }
   end
 end
