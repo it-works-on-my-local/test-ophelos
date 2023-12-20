@@ -10,15 +10,16 @@ RSpec.describe Income, type: :model do
     it { is_expected.to validate_presence_of(:other) }
 
     it 'validates salary within range' do
-      income = FactoryBot.build_stubbed(:income, salary: -1)
+      income_expenditure = FactoryBot.create(:income_expenditure)
+      income = FactoryBot.build_stubbed(:income,income_expenditure: income_expenditure, salary: -1)
       expect(income).to be_invalid
       expect(income.errors[:salary]).to include('must be greater than or equal to 100')
 
-      income = FactoryBot.build_stubbed(:income, salary: max_salary + 1)
+      income = FactoryBot.build_stubbed(:income,income_expenditure: income_expenditure, salary: max_salary + 1)
       expect(income).to be_invalid
       expect(income.errors[:salary]).to include("must be less than or equal to #{max_salary}")
 
-      income = FactoryBot.build_stubbed(:income, salary: max_salary)
+      income = FactoryBot.build_stubbed(:income, income_expenditure: income_expenditure, salary: max_salary)
       expect(income).to be_valid
     end
 

@@ -15,7 +15,7 @@ RSpec.describe IncomeExpenditure, type: :model do
 
   describe 'methods' do
     let(:valid_income_expenditure) do
-      FactoryBot.create(:income_expenditure)
+      FactoryBot.create(:income_expenditure, income: FactoryBot.build(:income, salary: 3000, other: 500))
     end
 
     it 'calculates disposable income' do

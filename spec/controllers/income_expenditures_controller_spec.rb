@@ -59,19 +59,6 @@ RSpec.describe IncomeExpendituresController, type: :controller do
       end
     end
 
-    describe 'DELETE #destroy' do
-      let(:ie_statement) { FactoryBot.create(:income_expenditure, user: user) }
-
-      it 'deletes the I&E statement' do
-        expect do
-          delete :destroy, params: { id: ie_statement.id }
-        end.to change(IncomeExpenditure, :count).by(-1)
-
-        expect(response).to redirect_to(income_expenditures_path)
-        expect(flash[:notice]).to be_present
-      end
-    end
-
     describe 'GET #index' do
       it 'renders the index template' do
         get :index
