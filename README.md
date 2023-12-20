@@ -3,7 +3,7 @@
 
 ## Overview
 
-The Income Expenditure Tracker is a comprehensive financial management web application designed for business travelers. This app empowers users to efficiently track income, manage expenses, and gain valuable insights into their financial health. Utilizing AI and machine learning, the application predicts travel patterns and preferences, making it an invaluable tool for the modern business professional.
+The Income Expenditure Tracker serves as a platform for generating detailed income and expenditure statements. Moreover, the application dynamically computes users' disposable income and assigns an I&E rating based on their financial data.
 
 ## Project Structure
 
@@ -57,19 +57,20 @@ Gems Added
 - Simple Form: Simplifies form creation with a concise syntax.
 - Factory Bot Rails: A testing library for creating consistent and reusable test data.
 
-### Thought Process
+## Improvements and Future Work
 
-#### Pragmatic Gem Selection
+- **Enhanced User Interface:**
+  - Explore opportunities to improve the styling and user interface for a more polished and intuitive look. Consider user feedback and design principles to enhance the overall user experience.
 
-Carefully selected gems such as Devise and Bootstrap were chosen to streamline the development process and enhance user experience. The inclusion of Autoprefixer-Rails ensures consistent styling across different browsers.
+- **Advanced Analytics:**
+  - Incorporate advanced analytics to provide users with more profound insights into their financial data. Utilize charts, graphs, and visualizations to present data trends and patterns, empowering users to make informed financial decisions.
 
-#### Testing Strategy
+- **Notification System:**
+  - Implement a notification system to remind users to submit their I&E statements monthly. Automated reminders can enhance user engagement and ensure timely updates.
 
-RSpec and Factory Bot Rails were employed to maintain a robust testing suite. This enables the creation of reliable and reusable test data, ensuring the application's stability and functionality.
+- **Bank Statement Parsing:**
+  - Introduce a feature to parse details directly from bank statements. Enable users to upload or link their bank statements, and automate the extraction of income and expenditure details. This feature streamlines the process, reducing manual data entry and enhancing accuracy.
 
-#### Scaling Considerations
-
-Anticipating future growth, the project is designed with scalability in mind. Strategies include optimizing database queries, implementing caching mechanisms, and considering a microservices architecture for independent scalability.
 
 ## Scaling for the Future
 
@@ -83,7 +84,3 @@ As the Income Expenditure Tracker grows, scalability becomes a crucial considera
 - **CDN Integration:** Implement a Content Delivery Network (CDN) to distribute static assets globally, reducing latency and improving page load times.
 - **Horizontal Scaling:** Scale horizontally by adding more application servers to handle increased traffic and user load.
 - **Monitoring and Analytics:** Implement robust monitoring tools to track application performance, identify bottlenecks, and make data-driven decisions for scaling.
-- Scaling Database Infrastructure: As the user base grows, consider scaling the database infrastructure, possibly using sharding or dedicated database clusters.
-- CDN Integration: Implement a Content Delivery Network (CDN) to distribute static assets globally, reducing latency and improving page load times.
-- Horizontal Scaling: Scale horizontally by adding more application servers to handle increased traffic and user load.
-- Monitoring and Analytics: Implement robust monitoring tools to track application performance, identify bottlenecks, and make data-driven decisions for scaling.
