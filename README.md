@@ -76,22 +76,25 @@ Gems Added
 
 ## Improvements and Future Work
 - **Enhanced User Interface:**
-  - Explore opportunities to improve the styling and user interface for a more polished and intuitive look. Consider user feedback and design principles to enhance the overall user experience.
+  - Explore opportunities to improve the styling and user interface for a more polished and intuitive look. Consider user feedback and design principles to       enhance the overall user experience.
 
 - **Advanced Analytics:**
-  - Incorporate advanced analytics to provide users with more profound insights into their financial data. Utilize charts, graphs, and visualizations to present data trends and patterns, empowering users to make informed financial decisions.
+  - Incorporate advanced analytics to provide users with more profound insights into their financial data. Utilize charts, graphs, and visualizations to           present data trends and patterns, empowering users to make informed financial decisions.
 
 - **Notification System:**
-  - Implement a notification system to remind users to submit their I&E statements monthly. Automated reminders can enhance user engagement and ensure timely updates.
+  - Implement a notification system to remind users to submit their I&E statements monthly. Automated reminders can enhance user engagement and ensure timely     updates.
 
 - **Bank Statement Parsing:**
-  - Introduce a feature to parse details directly from bank statements. Enable users to upload or link their bank statements, and automate the extraction of income and expenditure details. This feature streamlines the process, reducing manual data entry and enhancing accuracy.
+  - Introduce a feature to parse details directly from bank statements. Enable users to upload or link their bank statements, and automate the extraction of      income and expenditure details. This feature streamlines the process, reducing manual data entry and enhancing accuracy.
 
 - **Enhanced Security Measures:**
-  - Strengthen application security by implementing best practices such as parameterized queries, secure authentication mechanisms, and regular security audits. Consider using tools like Brakeman to scan for security vulnerabilities and address any identified issues promptly.
+  - Strengthen application security by implementing best practices such as parameterized queries, secure authentication mechanisms, and regular security         audits. Consider using tools like Brakeman to scan for security vulnerabilities and address any identified issues promptly.
 
 - **Error Handling and User Feedback:**
-  - Enhance the error handling component to provide informative and user-friendly error messages. Ensure that users receive clear feedback in case of form submission errors or unexpected issues. Implement logging mechanisms to capture and investigate errors on the server side, improving the application's reliability.
+  - Enhance the error handling component to provide informative and user-friendly error messages. Ensure that users receive clear feedback in case of form       submission errors or unexpected issues. Implement logging mechanisms to capture and investigate errors on the server side, improving the application's         reliability.
+
+- **Refactoring and DRY Principles:**
+  - Conduct code refactoring to improve readability and maintainability. Adhere to DRY principles by eliminating code duplication, utilizing helper methods,     and organizing shared components.
 
 
 ## Scaling for the Future
