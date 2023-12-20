@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :income_expenditure do
     person_name { 'John Doe' }
+    association :user, factory: :user
 
     transient do
       with_income { true }

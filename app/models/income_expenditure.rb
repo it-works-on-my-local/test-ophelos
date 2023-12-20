@@ -2,6 +2,7 @@
 
 # app/models/income_expenditure.rb
 class IncomeExpenditure < ApplicationRecord
+  belongs_to :user
   has_one :income, dependent: :destroy
   has_one :expenditure, dependent: :destroy
 
