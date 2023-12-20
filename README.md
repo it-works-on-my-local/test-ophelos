@@ -1,4 +1,3 @@
-
 # Income Expenditure Tracker
 
 ## Overview
@@ -14,6 +13,31 @@ Ensure that you have the following installed on your machine:
 - Ruby 3.1.2
 - Rails 7.1.2
 - PostgreSQL
+
+
+### Setup
+
+
+#### Clone the repository
+git clone https://github.com/your-username/test-ophelos.git
+
+#### Navigate to the project directory
+cd test-ophelos
+
+#### Install dependencies
+bundle install
+
+#### Set up the database
+rails db:create db:migrate
+
+#### Start the Rails server
+rails server
+
+#### Sign up
+Devise gem instantly help you sign up or login
+
+#### Homepage
+This page will show you all your statement details with disposable income also ratings
 
 
 ### app/views
@@ -70,6 +94,12 @@ Gems Added
 
 - **Bank Statement Parsing:**
   - Introduce a feature to parse details directly from bank statements. Enable users to upload or link their bank statements, and automate the extraction of income and expenditure details. This feature streamlines the process, reducing manual data entry and enhancing accuracy.
+
+- **Enhanced Security Measures:**
+  - Strengthen application security by implementing best practices such as parameterized queries, secure authentication mechanisms, and regular security audits. Consider using tools like Brakeman to scan for security vulnerabilities and address any identified issues promptly.
+
+- **Error Handling and User Feedback:**
+  - Enhance the error handling component to provide informative and user-friendly error messages. Ensure that users receive clear feedback in case of form submission errors or unexpected issues. Implement logging mechanisms to capture and investigate errors on the server side, improving the application's reliability.
 
 
 ## Scaling for the Future
