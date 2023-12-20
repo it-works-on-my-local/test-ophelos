@@ -1,0 +1,24 @@
+<!-- app/views/ie_statements/new.html.erb -->
+
+<h1>Create an I&E Statement</h1>
+
+<%= form_with(model: @ie_statement, url: ie_statements_path, local: true) do |form| %>
+  <div>
+    <%= form.label :person_name %>
+    <%= form.text_field :person_name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :income %>
+    <%= form.number_field :income, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :expenditure %>
+    <%= form.number_field :expenditure, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit 'Submit' %>
+  </div>
+<% end %>
