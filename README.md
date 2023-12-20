@@ -1,13 +1,8 @@
 # Income Expenditure Tracker
-
-## Overview
-
 The Income Expenditure Tracker serves as a platform for generating detailed income and expenditure statements. Moreover, the application dynamically computes users' disposable income and assigns an I&E rating based on their financial data.
 
-## Project Structure
 
 ### Prerequisites
-
 Ensure that you have the following installed on your machine:
 
 - Ruby 3.1.2
@@ -16,28 +11,26 @@ Ensure that you have the following installed on your machine:
 
 
 ### Setup
-
-
 #### Clone the repository
-git clone https://github.com/your-username/test-ophelos.git
+- git clone https://github.com/your-username/test-ophelos.git
 
 #### Navigate to the project directory
-cd test-ophelos
+- cd test-ophelos
 
 #### Install dependencies
-bundle install
+- bundle install
 
 #### Set up the database
-rails db:create db:migrate
+- rails db:create db:migrate
 
 #### Start the Rails server
-rails server
+- rails server
 
 #### Sign up
-Devise gem instantly help you sign up or login
+- Devise gem instantly help you sign up or login
 
 #### Homepage
-This page will show you all your statement details with disposable income also ratings
+- This page will show you all your statement details with disposable income also ratings
 
 
 ### app/views
@@ -58,7 +51,7 @@ This page will show you all your statement details with disposable income also r
 ### db/schema.rb
 - Auto-generated schema file representing the database structure having details about the models and table contents
 
-###  Spec
+### Spec
 - Controller: spec/controllers/income_expenditures_controller_spec.rb
 - Models: 
   - spec/models/expenditure_spec.rb
@@ -82,7 +75,6 @@ Gems Added
 - Factory Bot Rails: A testing library for creating consistent and reusable test data.
 
 ## Improvements and Future Work
-
 - **Enhanced User Interface:**
   - Explore opportunities to improve the styling and user interface for a more polished and intuitive look. Consider user feedback and design principles to enhance the overall user experience.
 
@@ -103,7 +95,6 @@ Gems Added
 
 
 ## Scaling for the Future
-
 As the Income Expenditure Tracker grows, scalability becomes a crucial consideration. Here are strategies for scaling the application:
 
 - **Database Optimization:** Regularly review and optimize database queries to ensure efficient performance, especially as the dataset expands.
