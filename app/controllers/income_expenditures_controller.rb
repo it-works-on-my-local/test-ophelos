@@ -4,20 +4,34 @@
 class IncomeExpendituresController < ApplicationController
   def new
     @ie_statement = IncomeExpenditure.new
-  end
-
-  def show
-    @ie_statement = IncomeExpenditure.find(params[:id])
+    @ie_statement.build_income
+    @ie_statement.build_expenditure
   end
 
   def create
     @ie_statement = IncomeExpenditure.new(ie_params)
 
     if @ie_statement.save
-      redirect_to income_expenditures_path, notice: 'Income and expenditure statement was successfully created.'
+      redirect_to income_expenditure_path(@ie_statement), notice: 'I&E Statement was successfully created.'
     else
       render :new
     end
+  end
+
+  def update
+    @ie_statement = IncomeExpenditure.find(params[:id])
+
+    if @ie_statement.update(ie_statement_params)
+      redirect_to @ie_statement, notice: 'I&E Statement was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @ie_statement = IncomeExpenditure.find(params[:id])
+    @ie_statement.destroy
+    redirect_to income_expenditures_path, notice: 'I&E Statement was successfully deleted.'
   end
 
   def index

@@ -1,22 +1,25 @@
 <!-- app/views/income_expenditures/index.html.erb -->
 
-<h1>Income and Expenditure Statements</h1>
+<h1 class="mb-4">Income and Expenditure Statements</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Person Name</th>
-      <th>Salary</th>
-      <th>Other</th>
-      <th>Mortgage</th>
-      <th>Utilities</th>
-      <th>Travel</th>
-      <th>Food</th>
-      <th>Loan Repayment</th>
+      <th scope="col">Person Name</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Other</th>
+      <th scope="col">Mortgage</th>
+      <th scope="col">Utilities</th>
+      <th scope="col">Travel</th>
+      <th scope="col">Food</th>
+      <th scope="col">Loan Repayment</th>
+      <th scope="col">Disposable Income</th>
+      <th scope="col">I&E Rating</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @ie_statements.each do |ie_statement| %>
+    <% @ie_statements.includes(:income, :expenditure).each do |ie_statement| %>
       <tr>
         <td><%= ie_statement.person_name %></td>
         <td><%= ie_statement.income&.salary %></td>
@@ -26,6 +29,12 @@
         <td><%= ie_statement.expenditure&.travel %></td>
         <td><%= ie_statement.expenditure&.food %></td>
         <td><%= ie_statement.expenditure&.loan_repayment %></td>
+        <td><%= ie_statement.disposable_income %></td>
+        <td><%= ie_statement.rating %></td>
+        <td>
+          <%= link_to 'Edit', edit_income_expenditure_path(ie_statement), class: 'btn btn-warning btn-sm me-2' %>
+          <%= button_to 'Delete', income_expenditure_path(ie_statement), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

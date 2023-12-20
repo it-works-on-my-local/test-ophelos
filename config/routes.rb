@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   devise_for :users
-    resources :income_expenditures, only: [:new, :create, :index, :show]
-    root 'income_expenditures#new'
+  resources :income_expenditures, only: [:new, :create, :edit, :update, :index, :destroy]
+  root 'income_expenditures#new'
 end

@@ -1,4 +1,4 @@
-<!-- app/views/income_expenditures/new.html.erb -->
+<!-- app/views/income_expenditures/edit.html.erb -->
 
 <style>
   .form-field {
@@ -7,9 +7,9 @@
 </style>
 
 <div class="container mt-5">
-  <h1 class="mb-4">Create an I&E Statement</h1>
+  <h1 class="mb-4">Edit I&E Statement</h1>
 
-  <%= form_with(model: @ie_statement, url: income_expenditures_path, local: true, class: 'mb-5') do |form| %>
+  <%= form_with(model: @ie_statement, url: income_expenditure_path(@ie_statement), method: :patch, local: true, class: 'mb-5') do |form| %>
     <div class="mb-3">
       <%= form.label :person_name, class: 'form-label' %>
       <%= form.text_field :person_name, class: 'form-control form-field', required: true %>
@@ -23,7 +23,7 @@
           <%= form.fields_for :income do |income_form| %>
             <div class="mb-3">
               <%= income_form.label :salary, class: 'form-label' %>
-              <%= income_form.number_field :salary, class: 'form-control form-field', required: true, value: 100, min: 100 %>
+              <%= income_form.number_field :salary, class: 'form-control form-field', required: true, value: @ie_statement.income&.salary, min: 101 %>
             </div>
           <% end %>
         </div>
@@ -32,7 +32,7 @@
           <%= form.fields_for :income do |income_form| %>
             <div class="mb-3">
               <%= income_form.label :other, class: 'form-label' %>
-              <%= income_form.number_field :other, class: 'form-control form-field', required: true, value: 0 %>
+              <%= income_form.number_field :other, class: 'form-control form-field', required: true, value: @ie_statement.income&.other %>
             </div>
           <% end %>
         </div>
@@ -46,14 +46,14 @@
         <%= form.fields_for :expenditure do |expenditure_form| %>
           <div class="mb-3">
             <%= expenditure_form.label field, class: 'form-label' %>
-            <%= expenditure_form.number_field field, class: 'form-control form-field', required: true, value: 0 %>
+            <%= expenditure_form.number_field field, class: 'form-control form-field', required: true, value: @ie_statement.expenditure&.send(field) %>
           </div>
         <% end %>
       <% end %>
     </fieldset>
 
     <div class="mb-3">
-      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+      <%= form.submit 'Update', class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
