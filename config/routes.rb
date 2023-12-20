@@ -7,9 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  #
-  Rails.application.routes.draw do
-    root 'ie_statements#new'
-    resources :ie_statements, only: [:create, :show]
-  end
+
+  devise_for :users
+  resources :income_expenditures, only: [:new, :create, :edit, :update, :index, :destroy]
+  root 'income_expenditures#new'
 end

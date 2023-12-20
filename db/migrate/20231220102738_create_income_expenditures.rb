@@ -5,10 +5,11 @@ class CreateIncomeExpenditures < ActiveRecord::Migration[7.1]
   def change
     create_table :income_expenditures do |t|
       t.string :person_name
-      t.float :income
-      t.float :expenditure
 
       t.timestamps
     end
+
+    add_reference :incomes, :income_expenditure, foreign_key: true
+    add_reference :expenditures, :income_expenditure, foreign_key: true
   end
 end

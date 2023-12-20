@@ -1,0 +1,59 @@
+<!-- app/views/income_expenditures/new.html.erb -->
+
+<style>
+  .form-field {
+    background-color: white;
+  }
+</style>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Create an I&E Statement</h1>
+
+  <%= form_with(model: @ie_statement, url: income_expenditures_path, local: true, class: 'mb-5') do |form| %>
+    <div class="mb-3">
+      <%= form.label :person_name, class: 'form-label' %>
+      <%= form.text_field :person_name, class: 'form-control form-field', required: true %>
+    </div>
+
+    <fieldset class="mb-4">
+      <legend class="form-legend">Income</legend>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.fields_for :income do |income_form| %>
+            <div class="mb-3">
+              <%= income_form.label :salary, class: 'form-label' %>
+              <%= income_form.number_field :salary, class: 'form-control form-field', required: true, value: 100, min: 100 %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-6">
+          <%= form.fields_for :income do |income_form| %>
+            <div class="mb-3">
+              <%= income_form.label :other, class: 'form-label' %>
+              <%= income_form.number_field :other, class: 'form-control form-field', required: true, value: 0 %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="mb-4">
+      <legend class="form-legend">Expenditure</legend>
+
+      <% [:mortgage, :utilities, :travel, :food, :loan_repayment].each do |field| %>
+        <%= form.fields_for :expenditure do |expenditure_form| %>
+          <div class="mb-3">
+            <%= expenditure_form.label field, class: 'form-label' %>
+            <%= expenditure_form.number_field field, class: 'form-control form-field', required: true, value: 0 %>
+          </div>
+        <% end %>
+      <% end %>
+    </fieldset>
+
+    <div class="mb-3">
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
