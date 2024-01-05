@@ -5,6 +5,10 @@ class IncomeExpendituresController < ApplicationController
   before_action :authorize_user, only: %i[edit update destroy]
   before_action :load_income_expenditure, only: %i[update destroy]
 
+  def index
+    @ie_statements = current_user.income_expenditures.includes(:income, :expenditure)
+  end
+
   def new
     @ie_statement = build_income_expenditure
   end

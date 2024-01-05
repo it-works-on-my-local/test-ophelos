@@ -34,11 +34,11 @@ class IncomeExpenditure < ApplicationRecord
   end
 
   def calculate_ratio
-    ratio = expenditure_amount.to_f / income_amount.to_f
+    ratio = expenditure_amount / income_amount.to_f
     ratio.nan? ? 0 : ratio
   end
 
   def calculate_amount(record, *attributes)
-    attributes.sum { |attr| record&.public_send(attr).to_i }
+    attributes.sum { |attr| record&.public_send(attr).to_f }
   end
 end

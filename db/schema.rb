@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_20_141340) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_120156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "expenditures", force: :cascade do |t|
-    t.bigint "income_expenditure_id"
     t.float "mortgage"
     t.float "utilities"
     t.float "travel"
@@ -23,13 +22,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_141340) do
     t.float "loan_repayment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "income_expenditure_id"
     t.index ["income_expenditure_id"], name: "index_expenditures_on_income_expenditure_id"
   end
 
   create_table "income_expenditures", force: :cascade do |t|
     t.string "person_name"
-    t.float "income"
-    t.float "expenditure"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -37,11 +35,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_141340) do
   end
 
   create_table "incomes", force: :cascade do |t|
-    t.bigint "income_expenditure_id"
     t.float "salary"
     t.float "other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "income_expenditure_id"
     t.index ["income_expenditure_id"], name: "index_incomes_on_income_expenditure_id"
   end
 

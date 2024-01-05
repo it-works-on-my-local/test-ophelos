@@ -4,7 +4,6 @@
 class CreateExpenditures < ActiveRecord::Migration[7.1]
   def change
     create_table :expenditures do |t|
-      t.references :income_expenditure, foreign_key: true
       t.float :mortgage
       t.float :utilities
       t.float :travel
